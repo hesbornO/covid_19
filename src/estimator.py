@@ -1,8 +1,10 @@
 # COVID 19 CHALLENGE
 # CREATED BY OSWAGO HESBON
 
+import sys
 #function for estimation
 def estimator(data):
+  
   reportedCases = int(data['reportedCases'])  
   impact_currentlyInfected = reportedCases * 10
   severeImpact_currentlyInfected = reportedCases * 50
@@ -10,7 +12,9 @@ def estimator(data):
   #DAYS
   while True:
     try:      
-      days = int(input("Please enter days: "))
+      print("Please enter days: ")
+      days = int(sys.stdin.readline())
+      
     except ValueError:    
       print("Invalid input! If no days, enter digit zero.")      
       continue
