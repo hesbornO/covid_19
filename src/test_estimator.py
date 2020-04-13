@@ -1,7 +1,7 @@
 
 import unittest
 from unittest.mock import patch
-# import calc
+import math
 from unittest import mock
 from unittest import TestCase
 
@@ -20,11 +20,13 @@ class EstimatorTest(unittest.TestCase):
     #     self.assertEqual(calc.divide(10, 5), 2)
     
     
-    def compat_input(self, s=''):
-        try:
-            return input(s)
-        except NameError:
-            return input(s)
+    # def compat_input(self, s=''):
+    #     try:
+    #         return input(s)
+    #     except NameError:
+    #         return input(s)
+    def test_power(self):
+        self.assertEquat(pow(5, 2), 25)
  
  
  
