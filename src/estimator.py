@@ -1,7 +1,6 @@
 # COVID 19 CHALLENGE
 # CREATED BY OSWAGO HESBON
-import argparse
-import string
+
 
 import sys
 #function for estimation
