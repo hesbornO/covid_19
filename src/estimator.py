@@ -51,20 +51,25 @@ def estimator(data):
   }
   return output_data
 
+def main():
 
-input_data= {   
-             'region': {       
-               'name': "Africa",       
-               'avgAge': 19.7,       
-               'avgDailyIncomeInUSD': 5,       
-               'avgDailyIncomePopulation': 0.71     
-               },   
-             'periodType': "days",   
-             'timeToElapse': 58,   
-             'reportedCases': 674,   
-             'population': 66622705,   
-             'totalHospitalBeds': 1380614 
-             }
+  input_data= {   
+              'region': {       
+                'name': "Africa",       
+                'avgAge': 19.7,       
+                'avgDailyIncomeInUSD': 5,       
+                'avgDailyIncomePopulation': 0.71     
+                },   
+              'periodType': "days",   
+              'timeToElapse': 58,   
+              'reportedCases': 674,   
+              'population': 66622705,   
+              'totalHospitalBeds': 1380614 
+              }
 
-result = estimator(input_data)
-print(result)
+  result = estimator(input_data)
+  print(result)
+    
+    
+if __name__ == "__main__":
+  main()
