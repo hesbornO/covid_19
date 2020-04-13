@@ -10,36 +10,6 @@ def estimator(data):
   reportedCases = int(data['reportedCases'])  
   impact_currentlyInfected = reportedCases * 10
   severeImpact_currentlyInfected = reportedCases * 50
-  #infection after some requestedTime
-  #DAYS
-  # while True:
-  #   try:      
-  #     print("Please enter days: ")
-  #     days = int(sys.stdin.readline())
-      
-  #   except ValueError:    
-  #     print("Invalid input! If no days, enter digit zero.")      
-  #     continue
-  #   else:
-  #     break
-  # #WEEKS
-  # while True:
-  #   try:      
-  #     weeks = int(input("Please enter weeks: "))
-  #   except ValueError:    
-  #     print("Invalid input! If no weeks, enter digit zero.")      
-  #     continue
-  #   else:
-  #     break
-  # #MONTHS
-  # while True:
-  #   try:      
-  #     months = int(input("Please enter months: "))
-  #   except ValueError:    
-  #     print("Invalid input! If no months, enter digit zero.")      
-  #     continue
-  #   else:
-  #     break
  
   requestedTime = int(data['timeToElapse'])
   #impact
