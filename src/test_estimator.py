@@ -23,7 +23,11 @@ class EstimatorTest(unittest.TestCase):
         with unittest.mock.patch('builtins.input', return_value='y'):
             assert input() == 'y'
             print('we got here, so the ad hoc test succeeded')
- 
+    def compat_input(self, s=''):
+        try:
+            return input(s)
+        except NameError:
+            return input(s)
  
  
  
