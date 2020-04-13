@@ -19,10 +19,7 @@ class EstimatorTest(unittest.TestCase):
     # def test_divide(self):             
     #     self.assertEqual(calc.divide(10, 5), 2)
     
-    def test_input_mocking(self):
-        with unittest.mock.patch('builtins.input', return_value='y'):
-            assert input() == 'y'
-            print('we got here, so the ad hoc test succeeded')
+    
     def compat_input(self, s=''):
         try:
             return input(s)
