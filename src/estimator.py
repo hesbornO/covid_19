@@ -10,11 +10,12 @@ def estimator(data):
   #DAYS
   while True:
     try:      
-      days = int(input("Please enter days: "))
+      days = input("Please enter days: ")
     except ValueError:    
       print("Invalid input! If no days, enter digit zero.")      
       continue
     else:
+      days = int(days)
       break
   #WEEKS
   while True:
