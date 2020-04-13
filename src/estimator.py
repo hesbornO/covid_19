@@ -6,11 +6,11 @@ def estimator(data):
   reportedCases = int(data['reportedCases'])  
   impact_currentlyInfected = reportedCases * 10
   severeImpact_currentlyInfected = reportedCases * 50
-  #infection after some duration
+  #infection after some requestedTime
   #DAYS
   while True:
     try:      
-      days = int("Please enter days: ")
+      days = int(input("Please enter days: "))
     except ValueError:    
       print("Invalid input! If no days, enter digit zero.")      
       continue
@@ -35,19 +35,31 @@ def estimator(data):
     else:
       break
  
-  duration = int(int(days) + (int(weeks) * 7) + (months * 30))
+  requestedTime = int(int(days) + (int(weeks) * 7) + (months * 30))
   #impact
-  impact_infectionsByRequestedTime = impact_currentlyInfected * (2 ** int(duration/3))
+  impact_infectionsByRequestedTime = impact_currentlyInfected * (2 ** int(requestedTime/3))
   #severeImpact
-  severeImpact_infectionsByRequestedTime = severeImpact_currentlyInfected * (2 ** int(duration/3))
+  severeImpact_infectionsByRequestedTime = severeImpact_currentlyInfected * (2 ** int(requestedTime/3))
   
-  print(f"Impact: {impact_currentlyInfected}\t\t After {duration} days: {impact_infectionsByRequestedTime}")
-  print(f"Impact: {severeImpact_currentlyInfected}\t\t After {duration} days: {severeImpact_infectionsByRequestedTime}")
- 
+  print(f"Impact: {impact_currentlyInfected}\t\t After {requestedTime} days: {impact_infectionsByRequestedTime}")
+  print(f"Impact: {severeImpact_currentlyInfected}\t\t After {requestedTime} days: {severeImpact_infectionsByRequestedTime}")
+
+  severeCasesByRequestedTime = 0.15 * severeImpact_infectionsByRequestedTime
+  
+  hospitalBedsByRequestedTime = (0.35 * int(data['totalHospitalBeds'])) -  severeCasesByRequestedTime
+  
+  casesForICUByRequestedTime = 0.05 * severeImpact_infectionsByRequestedTime
+  
+  casesForVentilatorsByRequestedTime = 0.02 * severeImpact_infectionsByRequestedTime
+  
+  dollarsInFlight = (impact_infectionsByRequestedTime * 0.65 * 1.5) / requestedTime;
+  
   output_data = {
     'data' : data,
-    'impact': {impact_infectionsByRequestedTime},
-    'severeImpact' : {severeImpact_infectionsByRequestedTime}
+    'impact': impact_infectionsByRequestedTime,
+    'severeImpact' : severeImpact_infectionsByRequestedTime,
+    'severeCasesByRequestedTime' : severeCasesByRequestedTime,
+    'hospitalBedsByRequestedTime' : int(hospitalBedsByRequestedTime)
   }
   return output_data
 
