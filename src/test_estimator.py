@@ -2,8 +2,11 @@
 import unittest
 from unittest.mock import patch
 import math
+from unittest import mock
+from unittest import TestCase
 
-class TestPower(unittest.TestCase):
+
+class EstimatorTest(unittest.TestCase):
     def test_divide(self):             
         self.assertEqual(math.pow(2, 3), 8)
     
@@ -16,11 +19,6 @@ class TestPower(unittest.TestCase):
     def test_divide(self):             
         self.assertEqual(math.divide(10, 5), 2)
     
-    def test_prompt(self, capsys, monkeypatch):
-        monkeypatch.setattr('path.to.yourmodule.input', lambda: 'no')
-        val = input(bear=..., printer=...)
-        assert not val        
-        
-       
+ 
 if __name__ == '__main__':
     unittest.main()
