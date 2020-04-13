@@ -52,8 +52,6 @@ def estimator(data):
   return output_data
 
 
-
-
 input_data= {   
              'region': {       
                'name': "Africa",       
