@@ -1,5 +1,7 @@
 # COVID 19 CHALLENGE
 # CREATED BY OSWAGO HESBON
+import argparse
+import string
 
 import sys
 #function for estimation
@@ -10,62 +12,62 @@ def estimator(data):
   severeImpact_currentlyInfected = reportedCases * 50
   #infection after some requestedTime
   #DAYS
-  while True:
-    try:      
-      print("Please enter days: ")
-      days = int(sys.stdin.readline())
+  # while True:
+  #   try:      
+  #     print("Please enter days: ")
+  #     days = int(sys.stdin.readline())
       
-    except ValueError:    
-      print("Invalid input! If no days, enter digit zero.")      
-      continue
-    else:
-      break
-  #WEEKS
-  while True:
-    try:      
-      weeks = int(input("Please enter weeks: "))
-    except ValueError:    
-      print("Invalid input! If no weeks, enter digit zero.")      
-      continue
-    else:
-      break
-  #MONTHS
-  while True:
-    try:      
-      months = int(input("Please enter months: "))
-    except ValueError:    
-      print("Invalid input! If no months, enter digit zero.")      
-      continue
-    else:
-      break
+  #   except ValueError:    
+  #     print("Invalid input! If no days, enter digit zero.")      
+  #     continue
+  #   else:
+  #     break
+  # #WEEKS
+  # while True:
+  #   try:      
+  #     weeks = int(input("Please enter weeks: "))
+  #   except ValueError:    
+  #     print("Invalid input! If no weeks, enter digit zero.")      
+  #     continue
+  #   else:
+  #     break
+  # #MONTHS
+  # while True:
+  #   try:      
+  #     months = int(input("Please enter months: "))
+  #   except ValueError:    
+  #     print("Invalid input! If no months, enter digit zero.")      
+  #     continue
+  #   else:
+  #     break
  
-  requestedTime = int(int(days) + (int(weeks) * 7) + (months * 30))
+  requestedTime = int(data['timeToElapse'])
   #impact
-  impact_infectionsByRequestedTime = impact_currentlyInfected * (2 ** int(requestedTime/3))
+  impact_infectionsByRequestedTime = int(impact_currentlyInfected * (2 ** int(requestedTime/3)))
   #severeImpact
-  severeImpact_infectionsByRequestedTime = severeImpact_currentlyInfected * (2 ** int(requestedTime/3))
+  severeImpact_infectionsByRequestedTime = int(severeImpact_currentlyInfected * (2 ** int(requestedTime/3)))
   
   print(f"Impact: {impact_currentlyInfected}\t\t After {requestedTime} days: {impact_infectionsByRequestedTime}")
   print(f"Impact: {severeImpact_currentlyInfected}\t\t After {requestedTime} days: {severeImpact_infectionsByRequestedTime}")
 
-  severeCasesByRequestedTime = 0.15 * severeImpact_infectionsByRequestedTime
+  severeCasesByRequestedTime = int(0.15 * severeImpact_infectionsByRequestedTime)
   
-  hospitalBedsByRequestedTime = (0.35 * int(data['totalHospitalBeds'])) -  severeCasesByRequestedTime
+  hospitalBedsByRequestedTime = int((0.35 * int(data['totalHospitalBeds'])) -  severeCasesByRequestedTime)
   
-  casesForICUByRequestedTime = 0.05 * severeImpact_infectionsByRequestedTime
+  casesForICUByRequestedTime = int(0.05 * severeImpact_infectionsByRequestedTime)
   
-  casesForVentilatorsByRequestedTime = 0.02 * severeImpact_infectionsByRequestedTime
+  casesForVentilatorsByRequestedTime = int(0.02 * severeImpact_infectionsByRequestedTime)
   
-  dollarsInFlight = (impact_infectionsByRequestedTime * 0.65 * 1.5) / requestedTime;
+  dollarsInFlight = int((impact_infectionsByRequestedTime * 0.65 * 1.5) / requestedTime)
   
   output_data = {
     'data' : data,
     'impact': impact_infectionsByRequestedTime,
     'severeImpact' : severeImpact_infectionsByRequestedTime,
     'severeCasesByRequestedTime' : severeCasesByRequestedTime,
-    'hospitalBedsByRequestedTime' : int(hospitalBedsByRequestedTime)
+    'hospitalBedsByRequestedTime' : hospitalBedsByRequestedTime
   }
-  return data
+  return output_data
 
 def main():
 
