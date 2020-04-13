@@ -51,3 +51,7 @@ branch - staging
 
 //BRANCHING 
 https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+
+
+//VSCODE UNRESOLVED IMPORTS
+https://github.com/microsoft/python-language-server/blob/master/TROUBLESHOOTING.md#unresolved-import-warnings
