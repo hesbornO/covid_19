@@ -1,0 +1,57 @@
+#20200407
+git init .
+
+git config --global user.name 'Oswago Hesborn'
+
+git config --global user.email 'oswago76@gmail.com'
+
+git add . 
+
+git commit -m 'commit message'
+
+git status
+
+// SWITCHING BRANCHES
+
+git branch branch_name    ;;create new branch
+
+git checkout branch_name   ;switch to new brach
+
+git add .
+
+git status
+
+git commit -m 'commit message'
+
+git merge master
+
+press i,type commit message, ESC , :wq
+
+//ADDING REMOTE REPOSITORY
+
+git init 
+git commit -m 'commit message'
+git remote add origin https://github.com/hesbornO/fb_andela.git
+git push -u origin master
+
+//REMOVING FILE FROM GIT REPO BUT NOT LOCAL DIR
+git rm --cached filename.ext
+
+//LIST FILES
+git ls-files
+
+//EXIT LOG
+q
+
+//
+master - production
+branch - staging
+
+
+
+//BRANCHING 
+https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+
+
+//VSCODE UNRESOLVED IMPORTS
+https://github.com/microsoft/python-language-server/blob/master/TROUBLESHOOTING.md#unresolved-import-warnings
