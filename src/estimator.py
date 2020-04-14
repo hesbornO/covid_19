@@ -89,12 +89,12 @@ def estimator(data):
                                      (data['region']['avgDailyIncomeInUSD']) / requestedTime)
              } 
   
-  output_data = {
-    'data' : data,
-    'impact': impact,
-    'severeImpact' : severeImpact
-  }
-  return output_data
+  
+  return {
+            'data' :{data},
+            'impact': {impact},
+            'severeImpact' : {severeImpact}
+          }
 
 def main():
 
