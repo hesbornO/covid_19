@@ -89,7 +89,7 @@ def estimator(data):
                                      (data['region']['avgDailyIncomeInUSD']) / requestedTime)
              } 
   
-  
+
   return {
             'data' : data,
             'impact': impact,
