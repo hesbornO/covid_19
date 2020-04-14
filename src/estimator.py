@@ -61,8 +61,6 @@ def estimator(data):
                               (data['region']['avgDailyIncomePopulation']) * 
                               (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
   
-  
-  
    
   return {
             'data' : data,
