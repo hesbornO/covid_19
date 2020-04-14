@@ -9,6 +9,7 @@ def estimator(data):
   reportedCases = int(data['reportedCases']) 
   requestedTime = int(data['timeToElapse'])
   
+  #IMPACT
   impact = { 'currentlyInfected' : int(reportedCases * 10)}
   
   impact.update({'infectionsByRequestedTime' : int(impact['currentlyInfected'] *
@@ -32,7 +33,7 @@ def estimator(data):
                              (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
   
   
-  
+  #SEVERE IMPACT
   severeImpact = { 'currentlyInfected' : int(reportedCases * 50)}
   
   severeImpact.update({ 'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] *
