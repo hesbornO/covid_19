@@ -7,7 +7,13 @@ import sys
 def estimator(data):
   
   reportedCases = int(data['reportedCases']) 
-  requestedTime = int(data['timeToElapse'])
+  
+  if (data['periodType'] == 'weeks'):
+    requestedTime = int(data['timeToElapse']) * 7
+  elif (data['periodType'] == 'months'):
+    requestedTime = int(data['timeToElapse']) * 30
+  else:
+    requestedTime = int(data['timeToElapse'])
   
   #IMPACT
   impact = { 'currentlyInfected' : int(reportedCases * 10)}
