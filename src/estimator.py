@@ -22,14 +22,14 @@ def estimator(data):
                                  impact['severeCasesByRequestedTime'])})
 
   impact.update({'casesForICUByRequestedTime' : int(0.05 * 
-                                impact['infectionsByRequestedTime'])})
+                             impact['infectionsByRequestedTime'])})
   
   impact.update({'casesForVentilatorsByRequestedTime' : int(0.02 * 
-                                impact['infectionsByRequestedTime'])})
+                             impact['infectionsByRequestedTime'])})
 
   impact.update({'dollarsInFlight' : int((impact['infectionsByRequestedTime']) *
-                               (data['region']['avgDailyIncomePopulation']) * 
-                               (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
+                             (data['region']['avgDailyIncomePopulation']) * 
+                             (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
   
   
   
