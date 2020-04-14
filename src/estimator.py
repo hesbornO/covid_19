@@ -13,48 +13,48 @@ def estimator(data):
   impact = { 'currentlyInfected' : int(reportedCases * 10)}
   
   impact.update({'infectionsByRequestedTime' : int(impact['currentlyInfected'] *
-                                 (2 ** (requestedTime/3)))})
+                                 (2 ** int(requestedTime/3)))})
   
-  impact.update({'severeCasesByRequestedTime' : int(0.15 * 
-                                 impact['infectionsByRequestedTime'])})
+  # impact.update({'severeCasesByRequestedTime' : int(0.15 * 
+  #                                impact['infectionsByRequestedTime'])})
 
-  impact.update({'hospitalBedsByRequestedTime' : int((0.35 * 
-                                 (data['totalHospitalBeds']))- 
-                                 impact['severeCasesByRequestedTime'])})
+  # impact.update({'hospitalBedsByRequestedTime' : int((0.35 * 
+  #                                (data['totalHospitalBeds']))- 
+  #                                impact['severeCasesByRequestedTime'])})
 
-  impact.update({'casesForICUByRequestedTime' : int(0.05 * 
-                             impact['infectionsByRequestedTime'])})
+  # impact.update({'casesForICUByRequestedTime' : int(0.05 * 
+  #                            impact['infectionsByRequestedTime'])})
   
-  impact.update({'casesForVentilatorsByRequestedTime' : int(0.02 * 
-                             impact['infectionsByRequestedTime'])})
+  # impact.update({'casesForVentilatorsByRequestedTime' : int(0.02 * 
+  #                            impact['infectionsByRequestedTime'])})
 
-  impact.update({'dollarsInFlight' : int((impact['infectionsByRequestedTime']) *
-                             (data['region']['avgDailyIncomePopulation']) * 
-                             (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
+  # impact.update({'dollarsInFlight' : int((impact['infectionsByRequestedTime']) *
+  #                            (data['region']['avgDailyIncomePopulation']) * 
+  #                            (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
   
   
   #SEVERE IMPACT
   severeImpact = { 'currentlyInfected' : int(reportedCases * 50)}
   
   severeImpact.update({ 'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] *
-                              (2 ** (requestedTime/3)))})
+                              (2 ** int(requestedTime/3)))})
   
-  severeImpact.update({ 'severeCasesByRequestedTime' : int(0.15 * 
-                              severeImpact['infectionsByRequestedTime'])})
+  # severeImpact.update({ 'severeCasesByRequestedTime' : int(0.15 * 
+  #                             severeImpact['infectionsByRequestedTime'])})
   
-  severeImpact.update({ 'hospitalBedsByRequestedTime' : int((0.35 * 
-                              (data['totalHospitalBeds']))- 
-                              severeImpact['severeCasesByRequestedTime']) })
+  # severeImpact.update({ 'hospitalBedsByRequestedTime' : int((0.35 * 
+  #                             (data['totalHospitalBeds']))- 
+  #                             severeImpact['severeCasesByRequestedTime']) })
   
-  severeImpact.update({'casesForICUByRequestedTime' : int(0.05 * 
-                              severeImpact['infectionsByRequestedTime'])})
+  # severeImpact.update({'casesForICUByRequestedTime' : int(0.05 * 
+  #                             severeImpact['infectionsByRequestedTime'])})
   
-  severeImpact.update({'casesForVentilatorsByRequestedTime' : int(0.02 * 
-                              severeImpact['infectionsByRequestedTime'])})
+  # severeImpact.update({'casesForVentilatorsByRequestedTime' : int(0.02 * 
+  #                             severeImpact['infectionsByRequestedTime'])})
   
-  severeImpact.update({'dollarsInFlight' : int((severeImpact['infectionsByRequestedTime']) *
-                              (data['region']['avgDailyIncomePopulation']) * 
-                              (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
+  # severeImpact.update({'dollarsInFlight' : int((severeImpact['infectionsByRequestedTime']) *
+  #                             (data['region']['avgDailyIncomePopulation']) * 
+  #                             (data['region']['avgDailyIncomeInUSD']) / requestedTime)})
   
   
   
