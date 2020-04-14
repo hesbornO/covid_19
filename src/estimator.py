@@ -91,9 +91,9 @@ def estimator(data):
   
   
   return {
-            'data' :{data},
-            'impact': {impact},
-            'severeImpact' : {severeImpact}
+            'data' : data,
+            'impact': impact,
+            'severeImpact' : severeImpact
           }
 
 def main():
