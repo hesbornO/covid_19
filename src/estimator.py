@@ -2,7 +2,6 @@
 # CREATED BY OSWAGO HESBON
 
 import pprint
-import sys
 #function for estimation
 def estimator(data):
   
