@@ -33,7 +33,7 @@ def estimator(data):
              'infectionsByRequestedTime' : int(impact['currentlyInfected'] * (2 ** int(requestedTime/3))),
              'severeCasesByRequestedTime' : int(0.15 * impact['infectionsByRequestedTime']),   
              'hospitalBedsByRequestedTime' : int((0.35 * int(data['totalHospitalBeds']))- impact['severeCasesByRequestedTime']),            
-             'casesForICUByRequestedTime' : int(0.05 * impact['infectionsByRequestedTime']) )}
+             'casesForICUByRequestedTime' : int(0.05 * impact['infectionsByRequestedTime']) }
   
   impact = { 'currentlyInfected' : int(reportedCases * 10),
              'infectionsByRequestedTime' : int(impact['currentlyInfected'] * (2 ** int(requestedTime/3))),
@@ -41,39 +41,39 @@ def estimator(data):
              'hospitalBedsByRequestedTime' : int((0.35 * int(data['totalHospitalBeds']))- impact['severeCasesByRequestedTime']),            
              'casesForICUByRequestedTime' : int(0.05 * impact['infectionsByRequestedTime']),  
              'casesForVentilatorsByRequestedTime' : int(0.02 * impact['infectionsByRequestedTime']),
-             'dollarsInFlight' : int((impact['infectionsByRequestedTime'] * 0.65 * 1.5) / requestedTime)
+             'dollarsInFlight' : int((impact['infectionsByRequestedTime'] * 0.65 * int(data['region']['avgDailyIncomeInUSD'])) / requestedTime)
              } 
   
   severeImpact = { 'currentlyInfected' : int(reportedCases * 50)}
   
-  severeImpact = { 'currentlyInfected' : int(reportedCases * 10),
+  severeImpact = { 'currentlyInfected' : int(reportedCases * 50),
              'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] * (2 ** int(requestedTime/3)))}
   
-  severeImpact = { 'currentlyInfected' : int(reportedCases * 10),
+  severeImpact = { 'currentlyInfected' : int(reportedCases * 50),
              'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] * (2 ** int(requestedTime/3))),
              'severeCasesByRequestedTime' : int(0.15 * severeImpact['infectionsByRequestedTime'])}
   
-  severeImpact = { 'currentlyInfected' : int(reportedCases * 10),
+  severeImpact = { 'currentlyInfected' : int(reportedCases * 50),
              'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] * (2 ** int(requestedTime/3))),
              'severeCasesByRequestedTime' : int(0.15 * severeImpact['infectionsByRequestedTime']) }
   
-  severeImpact = { 'currentlyInfected' : int(reportedCases * 10),
+  severeImpact = { 'currentlyInfected' : int(reportedCases * 50),
              'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] * (2 ** int(requestedTime/3))),
              'severeCasesByRequestedTime' : int(0.15 * severeImpact['infectionsByRequestedTime']),   
              'hospitalBedsByRequestedTime' : int((0.35 * int(data['totalHospitalBeds']))- severeImpact['severeCasesByRequestedTime']) }
   
-  severeImpact = { 'currentlyInfected' : int(reportedCases * 10),
+  severeImpact = { 'currentlyInfected' : int(reportedCases * 50),
              'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] * (2 ** int(requestedTime/3))),
              'severeCasesByRequestedTime' : int(0.15 * severeImpact['infectionsByRequestedTime']),   
              'hospitalBedsByRequestedTime' : int((0.35 * int(data['totalHospitalBeds']))- severeImpact['severeCasesByRequestedTime']) }
   
-  severeImpact = { 'currentlyInfected' : int(reportedCases * 10),
+  severeImpact = { 'currentlyInfected' : int(reportedCases * 50),
              'infectionsByRequestedTime' : int(severeImpact['currentlyInfected'] * (2 ** int(requestedTime/3))),
              'severeCasesByRequestedTime' : int(0.15 * severeImpact['infectionsByRequestedTime']),   
              'hospitalBedsByRequestedTime' : int((0.35 * int(data['totalHospitalBeds']))- severeImpact['severeCasesByRequestedTime']),            
              'casesForICUByRequestedTime' : int(0.05 * severeImpact['infectionsByRequestedTime']),  
              'casesForVentilatorsByRequestedTime' : int(0.02 * severeImpact['infectionsByRequestedTime']),
-             'dollarsInFlight' : int((severeImpact['infectionsByRequestedTime'] * 0.65 * 1.5) / requestedTime)
+             'dollarsInFlight' : int((severeImpact['infectionsByRequestedTime'] * 0.65 * int(data['region']['avgDailyIncomeInUSD'])) / requestedTime)
              } 
   
   output_data = {
