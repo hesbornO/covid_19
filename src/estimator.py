@@ -64,7 +64,8 @@ def estimator(data):
             'estimate': {
               'impact' : {impact},
               'severeImpact' : {severeImpact}               
-          }
+                }
+            }
 
 def main():
 
